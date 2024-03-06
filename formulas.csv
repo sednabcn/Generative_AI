@@ -1,0 +1,55 @@
+Description,Formula (Tableau)
+Sum of Sepal Length,SUM(Sepal Length)
+Average Sepal Width across all entries,AVG(Sepal Width)
+Find the median Petal Length,MEDIAN(Petal Length)
+Count the number of records in the dataset,COUNT(*)
+Count distinct species in the dataset,COUNT DISTINCT(Species)
+Minimum value of Sepal Length,MIN(Sepal Length)
+Maximum Petal Width found in the dataset,MAX(Petal Width)
+Group records by Species,GROUP BY(Species)
+Sort the entries by Sepal Length in ascending order,ORDER BY(Sepal Length ASC)
+List Species alphabetically,ORDER BY(Species ASC)
+Entries with Sepal Length at least 5.0,Sepal Length >= 5.0
+Entries with Petal Length between 1.5 and 2.5,Petal Length BETWEEN 1.5 AND 2.5
+Top 3 entries with the highest Sepal Width,TOP 3 BY(Sepal Width DESC)
+Species is 'Setosa',Species = 'Setosa'
+Species starts with 'Se',Species STARTS WITH 'Se'
+Calculate the total of Petal Lengths, SUM([Petal Length])
+What is the average Petal Width?, AVG([Petal Width])
+Determine the middle value of Sepal Widths,MEDIAN([Sepal Width])
+How many data points are there?,COUNT([Sepal Length])
+Number of unique flower types,COUNTD([Species])
+Lowest Sepal Length recorded,MIN([Sepal Length])
+Highest value of Petal Width found,MAX([Petal Width])
+Organize data by Species in descending order,"SORT([Species], DESC)"
+Rank Sepal Lengths from low to high,"SORT([Sepal Length], ASC)"
+Filter for Sepal Length greater than or equal to 4.5,[Sepal Length] >= 4.5
+Select entries with Petal Width less than 2.0,[Petal Width] < 2.0
+Show entries where Sepal Width is not 3.0,[Sepal Width] != 3.0
+List all where the Species name ends with 'ica',"ENDSWITH([Species], ""ica"")"
+Entries with a Sepal Length of exactly 5.0,[Sepal Length] = 5.0
+Display the top 5 Species by Sepal Width, INDEX() <= 5 SORT BY SUM([Sepal Width]) DESC
+Find the 3 smallest Petal Lengths, INDEX() <= 3 SORT BY [Petal Length] ASC
+Count occurrences where Petal Length is between 4 and 5,IF [Petal Length] >= 4 AND [Petal Length] <= 5 THEN 1 ELSE 0 END
+Aggregate data by the month of observation (assuming there's a Date field),"DATETRUNC('month', [Date])"
+Filter records from last year (assuming there's a Date field),YEAR([Date]) = YEAR(TODAY()) - 1
+Show only the data starting from January this year,"[Date] >= DATETRUNC('year' , TODAY())"
+"Find the average Sepal Length for each Species, sorted alphabetically", AVG([Sepal Length]) GROUP BY [Species] SORT BY [Species] ASC
+Count how many Species start with 'C', COUNTD(IF LEFT([Species], 1) = 'C' THEN [Species] ELSE NULL END)
+Entries with Petal Length and Sepal Length both above 4.0, [Petal Length] > 4.0 AND [Sepal Length] > 4.0
+List Species with Petal Width in the top 10%, RANK_PERCENTILE([Petal Width]) <= 0.1
+Total Sepal Length for all Iris flowers,SUM([Sepal Length])
+Average Petal Width across all species,AVG([Petal Width])
+Median Sepal Width for Iris setosa,"{ FIXED [Species] = ""setosa"" : MEDIAN([Sepal Width]) }"
+Count of Iris versicolor flowers,"SUM(IF [Species] = ""versicolor"" THEN 1 ELSE 0 END)"
+Distinct count of species with Sepal Length over 5.0,COUNTD(IF [Sepal Length] > 5.0 THEN [Species] ELSE NULL END)
+Minimum Petal Length for Iris virginica,"{ FIXED [Species] = ""virginica"" : MIN([Petal Length]) }"
+Maximum Sepal Width across Iris setosa,"{ FIXED [Species] = ""setosa"" : MAX([Sepal Width]) }"
+Total number of records grouped by Species, sorted by Species alphabetically, COUNT([Species]) GROUP BY [Species] ORDER BY [Species] ASC
+Filter to show only Iris versicolor with Sepal Width at least 3.0,"[Species] = ""versicolor"" AND [Sepal Width] >= 3.0"
+Show top 5 Sepal Lengths within Iris virginica only,"RANK([Sepal Length]) <= 5 AND [Species] = ""virginica"""
+Iris flowers with Petal Width in the bottom 10th percentile,RANK_PERCENTILE([Petal Width]) >= 0.9
+Average Sepal Length for each species, listed from highest to lowest, AVG([Sepal Length]) GROUP BY [Species] ORDER BY AVG([Sepal Length]) DESC
+Entries with Petal Length between 4.0 and 5.0 for Iris setosa,"[Species] = ""setosa"" AND [Petal Length] BETWEEN 4.0 AND 5.0"
+Count Iris flowers where the Species name contains 'color',"SUM(IF CONTAINS([Species],""color"") THEN 1 ELSE 0 END)"
+List all Iris flowers where the Species name starts with 'Iri' and ends with 'a'," STARTSWITH([Species], ""Iri"") AND ENDSWITH([Species], “a”)"
